@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Moham/Desktop/MyApplication/app/src/main/res/layout/activity_main.xml" value="0.17708333333333334" />
+        <entry key="..\:/Users/Moham/Desktop/MyApplication/app/src/main/res/drawable/card_back.xml" value="0.121" />
+        <entry key="..\:/Users/Moham/Desktop/MyApplication/app/src/main/res/drawable/card_back_btn.xml" value="0.121" />
+        <entry key="..\:/Users/Moham/Desktop/MyApplication/app/src/main/res/drawable/card_back_male_female.xml" value="0.2445" />
+        <entry key="..\:/Users/Moham/Desktop/MyApplication/app/src/main/res/drawable/ic_baseline_info_24.xml" value="0.121" />
+        <entry key="..\:/Users/Moham/Desktop/MyApplication/app/src/main/res/layout/activity_main.xml" value="0.4" />
       </map>
     </option>
   </component>
