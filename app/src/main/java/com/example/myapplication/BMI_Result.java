@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import static java.lang.Math.pow;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,15 +12,17 @@ import android.widget.RelativeLayout;
 
 import com.example.myapplication.databinding.ActivityBmiResultBinding;
 
+import java.util.List;
+
 public class BMI_Result extends AppCompatActivity {
     ActivityBmiResultBinding binding;
 
     String mBMI="26";
-    float intBMI=26;
+    double intBMI=26;
     String height;
     String weight;
     String age , gender;
-    float intHeight , intWeight, intAge , intGender;
+    double intHeight , intWeight, intAge , intGender;
     RelativeLayout mBackground;
     Intent intent ;
 
@@ -36,9 +40,9 @@ public class BMI_Result extends AppCompatActivity {
 
         intWeight = Float.parseFloat(weight);
         intHeight = Float.parseFloat(height);
-
         intHeight=intHeight/100;
-        mBMI =  Float.toString(intBMI);
+        intBMI = intWeight/pow(intHeight , 2);
+        mBMI =  Double.toString(intBMI);
 
 
         getSupportActionBar().hide();
@@ -46,12 +50,12 @@ public class BMI_Result extends AppCompatActivity {
 
         if (intBMI >16){
             binding.bmiCategory.setText("Serve Thiness");
-            mBackground.setBackgroundColor(Color.RED);
+            mBackground.setBackgroundColor(Color.parseColor("#DA8181"));
             binding.imageView.setImageResource(R.drawable.ic_baseline_highlight_off_24);
         }
         else   if (intBMI <16.9&& intBMI>16){
             binding.bmiCategory.setText("Moderate Thiness");
-            mBackground.setBackgroundColor(Color.YELLOW);
+            mBackground.setBackgroundColor(Color.parseColor("#C1B35B"));
             binding.imageView.setImageResource(R.drawable.ic_baseline_info_24);
         }
         else   if (intBMI <25&& intBMI>18.4){
@@ -61,18 +65,19 @@ public class BMI_Result extends AppCompatActivity {
         }
         else   if (intBMI <29.4&& intBMI>25){
             binding.bmiCategory.setText("Over Weight");
-            mBackground.setBackgroundColor(Color.YELLOW);
+            mBackground.setBackgroundColor(Color.parseColor("#C1B35B"));
             binding.imageView.setImageResource(R.drawable.ic_baseline_info_24);
         }
 
         else  {
             binding.bmiCategory.setText("obese Class");
-            mBackground.setBackgroundColor(Color.YELLOW);
+            mBackground.setBackgroundColor(Color.parseColor("#C1B35B"));
             binding.imageView.setImageResource(R.drawable.ic_baseline_info_24);
         }
 
         binding.genderDisplay.setText(gender);
-        binding.bmiDisplay.setText(mBMI);
+
+        binding.bmiDisplay.setText(mBMI.substring(0,5));
 
         binding.reCalculateBmi.setOnClickListener(view -> {
             startActivity(new Intent(this, MainActivity.class));

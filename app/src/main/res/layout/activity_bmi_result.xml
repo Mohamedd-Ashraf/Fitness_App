@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#86010209"
     android:layout_height="match_parent"
+    android:background="@color/grey"
     tools:context=".BMI_Result">
 
     <ImageView
@@ -64,19 +64,19 @@
     </RelativeLayout>
 
     <android.widget.Button
+        android:id="@+id/re_calculate_bmi"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:id="@+id/re_calculate_bmi"
-        android:textSize="18sp"
         android:layout_below="@id/content_layout"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/card_back_not_focus"
         android:text="Re Calculate BMI"
         android:textColor="@color/white"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:textStyle="bold"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/card_back_btn">
+        android:textSize="18sp"
+        android:textStyle="bold">
 
     </android.widget.Button>
 
@@ -84,9 +84,9 @@
         android:id="@+id/bannerContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
+        android:layout_marginBottom="10dp"
         android:visibility="visible" />
 
 

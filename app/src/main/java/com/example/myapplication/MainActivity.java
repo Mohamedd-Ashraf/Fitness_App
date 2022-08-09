@@ -9,8 +9,8 @@ import android.widget.SeekBar;
 import android.widget.Toast;
 
 //todo Edit The Colors
-import com.example.myapplication.databinding.ActivityMainBinding;
 
+import com.example.myapplication.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     int intialWeight = 50;
@@ -33,14 +33,14 @@ public class MainActivity extends AppCompatActivity {
             calculateBmi();
         });
         binding.male.setOnClickListener(view -> {
-            binding.male.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.card_back_btn));
-            binding.female.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.card_back_not_focus));
+            binding.male.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.card_back_plus_minus));
+            binding.female.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.card_back));
             typeOfUser = "Male";
 
         });
         binding.female.setOnClickListener(view -> {
-            binding.female.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.card_back_btn));
-            binding.male.setBackground(ContextCompat.getDrawable(getApplicationContext(),R.drawable.card_back_not_focus));
+            binding.female.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.card_back_plus_minus));
+            binding.male.setBackground(ContextCompat.getDrawable(getApplicationContext(), R.drawable.card_back));
             typeOfUser = "Female";
 
         });
