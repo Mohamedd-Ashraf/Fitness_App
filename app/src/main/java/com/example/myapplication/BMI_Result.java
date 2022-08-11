@@ -29,6 +29,7 @@ public class BMI_Result extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        DBHelper db = new DBHelper(this);
         binding = ActivityBmiResultBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         mBackground = findViewById(R.id.content_layout) ;
@@ -40,15 +41,17 @@ public class BMI_Result extends AppCompatActivity {
 
         intWeight = Float.parseFloat(weight);
         intHeight = Float.parseFloat(height);
-        intHeight=intHeight/100;
-        intBMI = intWeight/pow(intHeight , 2);
+        //intHeight=intHeight/100;
+        intBMI = intWeight/pow(intHeight/100 , 2);
         mBMI =  Double.toString(intBMI);
+
+        db.insert(gender, height, weight, age, mBMI);
 
 
         getSupportActionBar().hide();
 
 
-        if (intBMI >16){
+        if (intBMI < 16){
             binding.bmiCategory.setText("Serve Thiness");
             mBackground.setBackgroundColor(Color.parseColor("#DA8181"));
             binding.imageView.setImageResource(R.drawable.ic_baseline_highlight_off_24);

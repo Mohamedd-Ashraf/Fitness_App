@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.SeekBar;
 import android.widget.Toast;
@@ -11,7 +12,13 @@ import android.widget.Toast;
 //todo Edit The Colors
 
 import com.example.myapplication.databinding.ActivityMainBinding;
+
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
+
+
+
     ActivityMainBinding binding;
     int intialWeight = 50;
     int intialِAge= 20;
@@ -22,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     String typeOfUser = "0";
     String currentAge= "20";
 
+    DBHelper myDB;
+    ArrayList<String> mBMI, height, weight, age;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +94,17 @@ public class MainActivity extends AppCompatActivity {
             currentWeight= String.valueOf(intialWeight);
             binding.currentWeight.setText(currentWeight);
         });
+
+        myDB = new DBHelper(MainActivity.this);
+        mBMI = new ArrayList<>();
+        height = new ArrayList<>();
+        weight = new ArrayList<>();
+        age = new ArrayList<>();
+
+
+
+        displayData();
+
     }
 
     private void calculateBmi() {
@@ -119,4 +139,20 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+    void displayData(){
+        Cursor cursor = myDB.readAllData(); //store there result from our readAllData in our cursor obj
+        if (cursor.getCount() == 0){ //there is no data
+            Toast.makeText(this, "No Data. ", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            while (cursor.moveToNext()){ //read all data from our cursor
+                mBMI.add(cursor.getString(0)); //0 means the 1st column
+                height.add(cursor.getString(1)); //1 means the 2nd column
+                weight.add(cursor.getString(2)); //2 means the 3rd column
+                age.add(cursor.getString(3)); //3 means the 4th column
+            }
+        }
+    }
+
 }
