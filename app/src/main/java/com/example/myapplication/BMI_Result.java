@@ -12,17 +12,15 @@ import android.widget.RelativeLayout;
 
 import com.example.myapplication.databinding.ActivityBmiResultBinding;
 
-import java.util.List;
-
 public class BMI_Result extends AppCompatActivity {
     ActivityBmiResultBinding binding;
 
-    String mBMI="26";
-    double intBMI=26;
+    String currentBMI ="26";
+    double intialBMI =26;
     String height;
     String weight;
     String age , gender;
-    double intHeight , intWeight, intAge , intGender;
+    double intialHeight, intialWeight;
     RelativeLayout mBackground;
     Intent intent ;
 
@@ -39,48 +37,48 @@ public class BMI_Result extends AppCompatActivity {
         age = intent.getStringExtra("age");
         gender = intent.getStringExtra("gender");
 
-        intWeight = Float.parseFloat(weight);
-        intHeight = Float.parseFloat(height);
+        intialWeight = Float.parseFloat(weight);
+        intialHeight = Float.parseFloat(height);
         //intHeight=intHeight/100;
-        intBMI = intWeight/pow(intHeight/100 , 2);
-        mBMI =  Double.toString(intBMI);
+        intialBMI = intialWeight /pow(intialHeight /100 , 2);
+        currentBMI =  Double.toString(intialBMI);
 
-        db.insert(gender, height, weight, age, mBMI);
+        db.insert(gender, height, weight, age, currentBMI);
 
 
         getSupportActionBar().hide();
 
 
-        if (intBMI < 16){
-            binding.bmiCategory.setText("Serve Thiness");
+        if (intialBMI < 18.5){
+            binding.bmiCategory.setText("underweight");
             mBackground.setBackgroundColor(Color.parseColor("#DA8181"));
             binding.imageView.setImageResource(R.drawable.ic_baseline_highlight_off_24);
         }
-        else   if (intBMI <16.9&& intBMI>16){
+        else   if (intialBMI <39.9&& intialBMI >30){
             binding.bmiCategory.setText("Moderate Thiness");
             mBackground.setBackgroundColor(Color.parseColor("#C1B35B"));
             binding.imageView.setImageResource(R.drawable.ic_baseline_info_24);
         }
-        else   if (intBMI <25&& intBMI>18.4){
-            binding.bmiCategory.setText("Normal");
+        else   if (intialBMI <24.9 && intialBMI >18.5){
+            binding.bmiCategory.setText("Healthy");
 //            mBackground.setBackgroundColor(Color.YELLOW);
             binding.imageView.setImageResource(R.drawable.ic_baseline_check_circle_outline_24);
         }
-        else   if (intBMI <29.4&& intBMI>25){
+        else   if (intialBMI <29.9&& intialBMI >25){
             binding.bmiCategory.setText("Over Weight");
             mBackground.setBackgroundColor(Color.parseColor("#C1B35B"));
             binding.imageView.setImageResource(R.drawable.ic_baseline_info_24);
         }
 
         else  {
-            binding.bmiCategory.setText("obese Class");
+            binding.bmiCategory.setText("obese");
             mBackground.setBackgroundColor(Color.parseColor("#C1B35B"));
-            binding.imageView.setImageResource(R.drawable.ic_baseline_info_24);
+            binding.imageView.setImageResource(R.drawable.ic_baseline_highlight_off_24);
         }
 
         binding.genderDisplay.setText(gender);
 
-        binding.bmiDisplay.setText(mBMI.substring(0,5));
+        binding.bmiDisplay.setText(currentBMI.substring(0,5));
 
         binding.reCalculateBmi.setOnClickListener(view -> {
             startActivity(new Intent(this, MainActivity.class));
