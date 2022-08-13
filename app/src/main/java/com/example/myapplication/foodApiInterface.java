@@ -6,7 +6,8 @@ import retrofit2.http.Header;
 import retrofit2.http.Headers;
 
 public interface apiInterface {
-    @GET("nutrition?query="+ Food.getName())
+    String query = "nutrition?query=";
+    @GET(query.concat(Food.getName()))
     @Headers({
             "Accept: application/json",
 
