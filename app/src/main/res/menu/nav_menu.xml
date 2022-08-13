@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Exercises"
+        android:id="@+id/exercise"
+        android:icon="@drawable/ic_baseline_fitness_center_24"/>
+    <item android:title="Foods"
+        android:id="@+id/foods"
+    android:icon="@drawable/ic_baseline_fastfood_24"/>
+    <item android:title="Bmi"
+        android:id="@+id/bmi"
+        android:icon="@drawable/ic_baseline_calculate_24"/>
+</menu>

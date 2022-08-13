@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Fitness_App4/app/src/main/res/drawable/ic_baseline_calculate_24.xml" value="0.1" />
+        <entry key="..\:/Fitness_App4/app/src/main/res/drawable/ic_baseline_fastfood_24.xml" value="0.1" />
+        <entry key="..\:/Fitness_App4/app/src/main/res/drawable/ic_baseline_fitness_center_24.xml" value="0.1" />
+        <entry key="..\:/Fitness_App4/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Fitness_App4/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Fitness_App4/app/src/main/res/menu/nav_menu.xml" value="0.11764705882352941" />
         <entry key="..\:/Users/Moham/Desktop/MyApplication/app/src/main/res/layout/activity_main.xml" value="0.17708333333333334" />
       </map>
     </option>
