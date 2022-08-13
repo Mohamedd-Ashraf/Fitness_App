@@ -18,7 +18,7 @@ public class fetchFood {
 
    
 
- public String fetch(string name) {
+ public Food fetch(string name) {
     this.name = name;
      Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("https://calorieninjas.p.rapidapi.com/v1/")
