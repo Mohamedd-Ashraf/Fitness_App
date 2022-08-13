@@ -15,7 +15,7 @@ import retrofit2.http.Headers;
 
 
     })
-        @GET("1315")
+        @GET("exercises")
 
 
     public Call<Exercise> getExercise ();
