@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -19,10 +21,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        List<Exercise> FM = new ArrayList<>();
+        try {
+            TimeUnit.SECONDS.sleep(3);
+           FM = fetchExercises.fetchexercise();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
 
-        List<Exercise> FM = fetchExercises.fetchexercise();
-        Toast.makeText(MainActivity.this , FM.get(0101).getBodyPart().toString() , Toast.LENGTH_LONG).show();
+        try {
+            TimeUnit.SECONDS.sleep(3);
+            Toast.makeText(MainActivity.this , FM.get(0101).getBodyPart().toString() , Toast.LENGTH_LONG).show();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
 
 
 //        Retrofit retrofit = new Retrofit.Builder()
