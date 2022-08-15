@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:title="Exercises"
-        android:id="@+id/exercise"
+        android:id="@+id/Exercises_item"
         android:icon="@drawable/ic_baseline_fitness_center_24"/>
     <item android:title="Foods"
-        android:id="@+id/foods"
+        android:id="@+id/Foods_item"
     android:icon="@drawable/ic_baseline_fastfood_24"/>
     <item android:title="Bmi"
-        android:id="@+id/bmi"
+        android:id="@+id/Bmi_item"
         android:icon="@drawable/ic_baseline_calculate_24"/>
 </menu>
